@@ -72,6 +72,34 @@
         function openTest1(name){
             uexWindow.open(name, '0', name+".html", '2', '', '', 1024);
         }
+    function openWindow()
+    {
+    	// try{
+    	// 	// appcan.window.open(name,data,aniId,type,dataType,width,height,animDuration,extraInfo)
+	    // 	var _json = {
+	    // 		name:"paypal",
+	    // 		data:'https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-4MS172783W9143159',
+	    // 		aniId:0,
+	    // 		type:512,
+	    // 		dataType:0,
+	    // 		width:"100%",
+	    // 		height:"100%",
+	    // 		animDuration:,
+	    // 		extraInfo:{},
+	    // 	};
+	    // 	uexWindow.open(JSON.stringify(_json));
+    	// }catch(e){
+    	// 	alert("e:"+e);
+    	// }
+        // alert(uex.cWindowFlagWebApp);
+        // alert(uex);
+        // uex.cWindowFlagWebApp=512;
+        uexWindow.open('paypal', '0', 'https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-0JF39522VD162402V', '2', '', '', 1024);
+    }
+    function openWindowbaidu()
+    {
+        uexWindow.open('baidu', '0', 'https://www.baidu.com', '2', '', '', 1024);
+    }
     
     function openWinInMainWithSliding() {
         var params  = {
@@ -119,6 +147,8 @@
 <!--                <div onclick="openTest('network/network')" class="testbtn">网络插件</div><br>-->
 <!--                <div onclick="openTest('media/media')" class="testbtn">多媒体插件</div><br>-->
 <!--                <div onclick="openTest('other/other')" class="testbtn">第三方插件</div><br>-->
+                <div onclick="openWindow()" class="testbtn">打开paypal</div><br>
+                <div onclick="openWindowbaidu('https://www.baidu.com')" class="testbtn">打开baidu</div><br>
                 <div onclick="openTest1('wintestNormal/uexWindow')" class="testbtn">打开普通窗口</div><br>
 				<div onclick="openTest1('wintestNormal/uexWindowFunc')" class="testbtn">window接口测试</div><br>
 				<div onclick="openLeftSlidingWin()" class="testbtn">打开侧边栏窗口</div><br>
