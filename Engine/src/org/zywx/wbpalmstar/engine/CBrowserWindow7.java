@@ -214,11 +214,17 @@ public class CBrowserWindow7 extends ACEDESBrowserWindow7 {
 
 			if (versionA <= 18) {
 				nowScale = target.getScale();
-			} else if (versionA >= 23 && url.indexOf("paypal.com") > -1) {
-				// url is paypal and the sdk version is 23 or higher
-				nowScale = 4.0f;
 			}
+			/*
+			 * else if (versionA >= 23 && url.indexOf("paypal.com") > -1) { //
+			 * url is paypal and the sdk version is 23 or higher nowScale =
+			 * 4.0f; }
+			 */
 			defaultFontSize = (int) (info.mDefaultFontSize / nowScale);
+
+			if (defaultFontSize > info.mDefaultNatvieFontSize && url.indexOf("paypal.com") > -1) {
+				defaultFontSize = info.mDefaultNatvieFontSize;
+			}
 			info.mScaled = true;
 			target.setDefaultFontSize(defaultFontSize);
 		}
