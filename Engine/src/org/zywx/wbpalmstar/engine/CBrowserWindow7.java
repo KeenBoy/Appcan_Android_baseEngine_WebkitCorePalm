@@ -223,7 +223,11 @@ public class CBrowserWindow7 extends ACEDESBrowserWindow7 {
 			defaultFontSize = (int) (info.mDefaultFontSize / nowScale);
 
 			if (defaultFontSize > info.mDefaultNatvieFontSize && url.indexOf("paypal.com") > -1) {
+				
 				defaultFontSize = info.mDefaultNatvieFontSize;
+				if(versionA >= 23){
+					defaultFontSize = (int) (info.mDefaultNatvieFontSize / 1.333);
+				}
 			}
 			info.mScaled = true;
 			target.setDefaultFontSize(defaultFontSize);
