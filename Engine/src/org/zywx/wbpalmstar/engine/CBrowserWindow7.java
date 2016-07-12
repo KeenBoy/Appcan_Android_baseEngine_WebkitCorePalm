@@ -34,6 +34,7 @@ import android.webkit.CookieSyncManager;
 import android.webkit.HttpAuthHandler;
 import android.webkit.SslErrorHandler;
 import android.webkit.WebSettings;
+import android.webkit.WebSettings.LayoutAlgorithm;
 import android.webkit.WebView;
 import android.widget.Toast;
 
@@ -221,16 +222,33 @@ public class CBrowserWindow7 extends ACEDESBrowserWindow7 {
 			 * 4.0f; }
 			 */
 			defaultFontSize = (int) (info.mDefaultFontSize / nowScale);
-
-			if (defaultFontSize > info.mDefaultNatvieFontSize && url.indexOf("paypal.com") > -1) {
-				
-				defaultFontSize = info.mDefaultNatvieFontSize;
-				if(versionA >= 23){
-					defaultFontSize = (int) (info.mDefaultNatvieFontSize / 1.333);
+			if (url.indexOf("paypal.com") > -1) {
+				if (defaultFontSize > info.mDefaultNatvieFontSize) {
+					defaultFontSize = info.mDefaultNatvieFontSize;
+					if (versionA >= 23) {
+						defaultFontSize = (int) (info.mDefaultNatvieFontSize / 1.333);
+					}
 				}
 			}
+			/*
+			 * if (url.indexOf("paypal.com") > -1) { if (defaultFontSize >
+			 * info.mDefaultNatvieFontSize) { defaultFontSize =
+			 * info.mDefaultNatvieFontSize; if (versionA >= 23) {
+			 * defaultFontSize = (int) (info.mDefaultNatvieFontSize / 1.333); }
+			 * } } else if (url.startsWith("https://accounts.google.com")) {
+			 * //defaultFontSize = 72; boolean uwvp =
+			 * target.getSettings().getUseWideViewPort();
+			 * //target.getSettings().setUseWideViewPort(true);
+			 * //target.getSettings().setLayoutAlgorithm(LayoutAlgorithm.
+			 * TEXT_AUTOSIZING);
+			 * //target.getSettings().setDefaultFixedFontSize(72); }
+			 */
+			// boolean uwvp = target.getSettings().getUseWideViewPort();
 			info.mScaled = true;
 			target.setDefaultFontSize(defaultFontSize);
+			target.getSettings().setUseWideViewPort(true);
+			target.getSettings().setLoadWithOverviewMode(true);
+			target.getSettings().setLayoutAlgorithm(LayoutAlgorithm.TEXT_AUTOSIZING);
 		}
 
 		if (!info.mFinished) {

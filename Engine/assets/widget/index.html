@@ -94,13 +94,22 @@
         // alert(uex.cWindowFlagWebApp);
         // alert(uex);
         // uex.cWindowFlagWebApp=512;
-        uexWindow.open('paypal', '0', 'https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-3RY83986957087731', '2', '', '', 1024);
+        uexWindow.open('paypal', '0', 'https://www.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-5YU52293A2829243A', '2', '', '', 1024);
     }
     function openWindowbaidu()
     {
         uexWindow.open('baidu', '0', 'https://www.baidu.com', '2', '', '', 1024);
     }
-    
+    function openWindowGoogle()
+    {
+    	var google_login_url = "https://accounts.google.com/ServiceLogin?passive=1209600&continue=https://accounts.google.com/o/oauth2/auth?approval_prompt%3Dforce%26scope%3Dhttps://www.googleapis.com/auth/userinfo.email%26response_type%3Dcode%26redirect_uri%3Dhttp://app.tbdress.com/callback.html%26client_id%3D1091065846029-osp8vpum713l1a2lu53ml5cp1t6072rv.apps.googleusercontent.com%26from_login%3D1%26as%3D2e8df3e55bb121e2&oauth=1&sarp=1&scc=1#identifier";
+        uexWindow.open('Google App', '0', google_login_url, '2', '', '', 1024);
+    }
+    function openWindowGoogleV2()
+    {
+    	var google_login_url = "https://accounts.google.com";
+        uexWindow.open('Google PC', '0', google_login_url, '2', '', '', 1024);
+    }
     function openWinInMainWithSliding() {
         var params  = {
             mark:0
@@ -149,13 +158,17 @@
 <!--                <div onclick="openTest('other/other')" class="testbtn">第三方插件</div><br>-->
                 <div onclick="openWindow()" class="testbtn">打开paypal</div><br>
                 <div onclick="openWindowbaidu('https://www.baidu.com')" class="testbtn">打开baidu</div><br>
+                <div onclick="openWindowGoogle()" class="testbtn">登录Google</div><br>
+                <div onclick="openWindowGoogleV2()" class="testbtn">PC Google</div><br>
                 <div onclick="openTest1('wintestNormal/uexWindow')" class="testbtn">打开普通窗口</div><br>
 				<div onclick="openTest1('wintestNormal/uexWindowFunc')" class="testbtn">window接口测试</div><br>
 				<div onclick="openLeftSlidingWin()" class="testbtn">打开侧边栏窗口</div><br>
                 <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口(iOS)</div><br>
                 <div onclick="openTest('uexWidget')" class="testbtn">uexWidget</div><br>
                 
+                
 <!--                <div onclick="openTest('wintestNav/uexWindow')" class="testbtn">打开导航视图窗口</div><br>-->
+
 
 			</div>
 		</div>
